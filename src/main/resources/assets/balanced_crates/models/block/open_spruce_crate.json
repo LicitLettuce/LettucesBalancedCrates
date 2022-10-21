@@ -5,5 +5,6 @@
     "particle": "balanced_crates:blocks/spruce_crate",
     "4": "balanced_crates:blocks/spruce_crate_open",
     "20": "balanced_crates:blocks/spruce_crate"
-  }
+  },
+  "render_type": "cutout_mipped"
 }

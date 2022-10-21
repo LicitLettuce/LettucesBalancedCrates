@@ -1,5 +1,5 @@
 {
-  "_fv": 28,
+  "_fv": 34,
   "_type": "tag",
   "definition": {
     "type": "Items",
@@ -57,60 +57,6 @@
       },
       {
         "value": "CUSTOM:OpenIndustrialCrate"
-      },
-      {
-        "value": "CUSTOM:LargeOakCrate"
-      },
-      {
-        "value": "CUSTOM:LargeSpruceCrate"
-      },
-      {
-        "value": "CUSTOM:LargeBirchCrate"
-      },
-      {
-        "value": "CUSTOM:LargeJungleCrate"
-      },
-      {
-        "value": "CUSTOM:LargeAcaciaCrate"
-      },
-      {
-        "value": "CUSTOM:LargeDarkOakCrate"
-      },
-      {
-        "value": "CUSTOM:LargeCrimsonCrate"
-      },
-      {
-        "value": "CUSTOM:LargeWarpedCrate"
-      },
-      {
-        "value": "CUSTOM:LargeIndustrialCrate"
-      },
-      {
-        "value": "CUSTOM:OpenLargeOakCrate"
-      },
-      {
-        "value": "CUSTOM:OpenLargeSpruceCrate"
-      },
-      {
-        "value": "CUSTOM:OpenLargeBirchCrate"
-      },
-      {
-        "value": "CUSTOM:OpenLargeJungleCrate"
-      },
-      {
-        "value": "CUSTOM:OpenLargeAcaciaCrate"
-      },
-      {
-        "value": "CUSTOM:OpenLargeDarkOakCrate"
-      },
-      {
-        "value": "CUSTOM:OpenLargeCrimsonCrate"
-      },
-      {
-        "value": "CUSTOM:OpenLargeWarpedCrate"
-      },
-      {
-        "value": "CUSTOM:OpenLargeIndustrialCrate"
       }
     ],
     "blocks": [],

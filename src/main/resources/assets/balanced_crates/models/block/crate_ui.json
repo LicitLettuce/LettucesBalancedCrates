@@ -5,5 +5,6 @@
     "particle": "balanced_crates:blocks/crate_ui_animated",
     "4": "balanced_crates:blocks/crate_top_gui_animated",
     "20": "balanced_crates:blocks/crate_ui_animated"
-  }
+  },
+  "render_type": "solid"
 }

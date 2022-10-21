@@ -5,5 +5,6 @@
     "particle": "balanced_crates:blocks/jungle_crate",
     "4": "balanced_crates:blocks/jungle_crate_open",
     "20": "balanced_crates:blocks/jungle_crate"
-  }
+  },
+  "render_type": "cutout_mipped"
 }

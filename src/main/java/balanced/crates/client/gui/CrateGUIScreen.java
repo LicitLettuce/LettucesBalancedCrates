@@ -5,7 +5,6 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.network.chat.TextComponent;
 import net.minecraft.network.chat.Component;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.gui.components.Button;
@@ -37,7 +36,7 @@ public class CrateGUIScreen extends AbstractContainerScreen<CrateGUIMenu> {
 		this.imageHeight = 186;
 	}
 
-	private static final ResourceLocation texture = new ResourceLocation("balanced_crates:textures/crate_gui.png");
+	private static final ResourceLocation texture = new ResourceLocation("balanced_crates:textures/screens/crate_gui.png");
 
 	@Override
 	public void render(PoseStack ms, int mouseX, int mouseY, float partialTicks) {
@@ -73,7 +72,7 @@ public class CrateGUIScreen extends AbstractContainerScreen<CrateGUIMenu> {
 	@Override
 	protected void renderLabels(PoseStack poseStack, int mouseX, int mouseY) {
 		this.font.draw(poseStack, "Inventory", 28, 92, -432260036);
-		this.font.draw(poseStack, "Crate", 10, 6, -12829636);
+		this.font.draw(poseStack, "This block is located at " + x + " " + y + " and " + z + ".", 10, 6, -12829636);
 	}
 
 	@Override
@@ -86,7 +85,7 @@ public class CrateGUIScreen extends AbstractContainerScreen<CrateGUIMenu> {
 	public void init() {
 		super.init();
 		this.minecraft.keyboardHandler.setSendRepeatsToGui(true);
-		this.addRenderableWidget(new Button(this.leftPos + 121, this.topPos + -22, 82, 20, new TextComponent("Close Crate"), e -> {
+		this.addRenderableWidget(new Button(this.leftPos + 121, this.topPos + -22, 82, 20, Component.literal("Close Crate"), e -> {
 			if (true) {
 				BalancedCratesMod.PACKET_HANDLER.sendToServer(new CrateGUIButtonMessage(0, x, y, z));
 				CrateGUIButtonMessage.handleButtonAction(entity, 0, x, y, z);

@@ -18,7 +18,7 @@ import javax.annotation.Nullable;
 public class GiveCrateRecipesProcedure {
 	@SubscribeEvent
 	public static void onItemCrafted(PlayerEvent.ItemCraftedEvent event) {
-		execute(event, event.getPlayer(), event.getCrafting());
+		execute(event, event.getEntity(), event.getCrafting());
 	}
 
 	public static void execute(Entity entity, ItemStack itemstack) {
@@ -41,6 +41,8 @@ public class GiveCrateRecipesProcedure {
 				_serverPlayer.awardRecipesByKey(new ResourceLocation[]{new ResourceLocation("balanced_crates:acacia_crate_recipe")});
 			if (entity instanceof ServerPlayer _serverPlayer)
 				_serverPlayer.awardRecipesByKey(new ResourceLocation[]{new ResourceLocation("balanced_crates:dark_oak_crate_recipe")});
+			if (entity instanceof ServerPlayer _serverPlayer)
+				_serverPlayer.awardRecipesByKey(new ResourceLocation[]{new ResourceLocation("balanced_crates:mangrove_crate_recipe")});
 			if (entity instanceof ServerPlayer _serverPlayer)
 				_serverPlayer.awardRecipesByKey(new ResourceLocation[]{new ResourceLocation("balanced_crates:crimson_crate_recipe")});
 			if (entity instanceof ServerPlayer _serverPlayer)

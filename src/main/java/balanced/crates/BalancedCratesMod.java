@@ -30,7 +30,7 @@ import java.util.function.Supplier;
 import java.util.function.Function;
 import java.util.function.BiConsumer;
 
-import balanced.crates.init.BalancedCratesModTabs;
+import balanced.crates.init.BalancedCratesModMenus;
 import balanced.crates.init.BalancedCratesModItems;
 import balanced.crates.init.BalancedCratesModBlocks;
 import balanced.crates.init.BalancedCratesModBlockEntities;
@@ -45,12 +45,15 @@ public class BalancedCratesMod {
 	private static int messageID = 0;
 
 	public BalancedCratesMod() {
-		BalancedCratesModTabs.load();
+
 		IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
+
 		BalancedCratesModBlocks.REGISTRY.register(bus);
 		BalancedCratesModItems.REGISTRY.register(bus);
 
 		BalancedCratesModBlockEntities.REGISTRY.register(bus);
+
+		BalancedCratesModMenus.REGISTRY.register(bus);
 
 	}
 

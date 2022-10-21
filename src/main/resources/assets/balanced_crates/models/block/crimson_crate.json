@@ -3,5 +3,6 @@
   "textures": {
     "all": "balanced_crates:blocks/crimson_crate",
     "particle": "balanced_crates:blocks/crimson_crate"
-  }
+  },
+  "render_type": "solid"
 }

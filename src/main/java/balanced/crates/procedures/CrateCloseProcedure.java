@@ -268,6 +268,47 @@ public class CrateCloseProcedure {
 							SoundSource.BLOCKS, 1, 1, false);
 				}
 			}
+		} else if ((world.getBlockState(new BlockPos(x, y, z))).getBlock() == BalancedCratesModBlocks.OPEN_MANGROVE_CRATE.get()) {
+			if (entity instanceof Player _player)
+				_player.closeContainer();
+			{
+				BlockPos _bp = new BlockPos(x, y, z);
+				BlockState _bs = BalancedCratesModBlocks.MANGROVE_CRATE.get().defaultBlockState();
+				BlockState _bso = world.getBlockState(_bp);
+				for (Map.Entry<Property<?>, Comparable<?>> entry : _bso.getValues().entrySet()) {
+					Property _property = _bs.getBlock().getStateDefinition().getProperty(entry.getKey().getName());
+					if (_property != null && _bs.getValue(_property) != null)
+						try {
+							_bs = _bs.setValue(_property, (Comparable) entry.getValue());
+						} catch (Exception e) {
+						}
+				}
+				BlockEntity _be = world.getBlockEntity(_bp);
+				CompoundTag _bnbt = null;
+				if (_be != null) {
+					_bnbt = _be.saveWithFullMetadata();
+					_be.setRemoved();
+				}
+				world.setBlock(_bp, _bs, 3);
+				if (_bnbt != null) {
+					_be = world.getBlockEntity(_bp);
+					if (_be != null) {
+						try {
+							_be.load(_bnbt);
+						} catch (Exception ignored) {
+						}
+					}
+				}
+			}
+			if (world instanceof Level _level) {
+				if (!_level.isClientSide()) {
+					_level.playSound(null, new BlockPos(x, y, z), ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("block.barrel.close")),
+							SoundSource.BLOCKS, 1, 1);
+				} else {
+					_level.playLocalSound(x, y, z, ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("block.barrel.close")),
+							SoundSource.BLOCKS, 1, 1, false);
+				}
+			}
 		} else if ((world.getBlockState(new BlockPos(x, y, z))).getBlock() == BalancedCratesModBlocks.OPEN_CRIMSON_CRATE.get()) {
 			if (entity instanceof Player _player)
 				_player.closeContainer();

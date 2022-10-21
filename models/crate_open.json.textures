@@ -69,6 +69,13 @@
         "20": "warped_crate"
       },
       "name": "warped"
+    },
+    "mangrove": {
+      "map": {
+        "4": "mangrove_crate_open",
+        "20": "mangrove_crate"
+      },
+      "name": "mangrove"
     }
   }
 }

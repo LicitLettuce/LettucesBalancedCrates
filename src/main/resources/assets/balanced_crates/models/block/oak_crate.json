@@ -3,5 +3,6 @@
   "textures": {
     "all": "balanced_crates:blocks/oak_crate",
     "particle": "balanced_crates:blocks/oak_crate"
-  }
+  },
+  "render_type": "solid"
 }

@@ -3,5 +3,6 @@
   "textures": {
     "all": "balanced_crates:blocks/birch_crate",
     "particle": "balanced_crates:blocks/birch_crate"
-  }
+  },
+  "render_type": "solid"
 }
