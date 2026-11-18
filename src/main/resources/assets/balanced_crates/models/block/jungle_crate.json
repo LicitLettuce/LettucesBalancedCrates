@@ -1,8 +1,8 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "balanced_crates:blocks/jungle_crate",
-    "particle": "balanced_crates:blocks/jungle_crate"
+    "all": "balanced_crates:block/jungle_crate",
+    "particle": "balanced_crates:block/jungle_crate"
   },
   "render_type": "solid"
 }

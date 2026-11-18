@@ -1,10 +1,10 @@
 {
-  "parent": "balanced_crates:custom/crate_open",
+  "parent": "balanced_crates:custom/open_crate",
   "textures": {
-    "all": "balanced_crates:blocks/acacia_crate",
-    "particle": "balanced_crates:blocks/acacia_crate",
-    "4": "balanced_crates:blocks/acacia_crate_open",
-    "20": "balanced_crates:blocks/acacia_crate"
+    "all": "balanced_crates:block/acacia_crate",
+    "particle": "balanced_crates:block/acacia_crate",
+    "crate": "balanced_crates:block/acacia_crate",
+    "open": "balanced_crates:block/acacia_crate_open"
   },
   "render_type": "cutout_mipped"
 }

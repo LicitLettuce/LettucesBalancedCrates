@@ -1,7 +1,0 @@
-{
-  "variants": {
-    "": {
-      "model": "balanced_crates:block/crate_ui"
-    }
-  }
-}

@@ -1,0 +1,16 @@
+{
+  "block.crate.open": {
+    "subtitle": "subtitles.balanced_crates.crate.open",
+    "sounds": [
+      "minecraft:block/barrel/open1",
+      "minecraft:block/barrel/open2",
+      "minecraft:block/barrel/open3"
+    ]
+  },
+  "block.crate.close": {
+    "subtitle": "subtitles.balanced_crates.crate.close",
+    "sounds": [
+      "minecraft:block/barrel/close"
+    ]
+  }
+}

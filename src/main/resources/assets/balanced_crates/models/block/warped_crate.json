@@ -1,8 +1,8 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "balanced_crates:blocks/warped_crate",
-    "particle": "balanced_crates:blocks/warped_crate"
+    "all": "balanced_crates:block/warped_crate",
+    "particle": "balanced_crates:block/warped_crate"
   },
   "render_type": "solid"
 }
