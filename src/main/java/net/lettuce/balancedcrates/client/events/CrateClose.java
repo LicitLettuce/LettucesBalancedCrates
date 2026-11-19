@@ -20,7 +20,7 @@ public class CrateClose {
 
 	private static Map<Block, Block> openToClosed;
 
-	private static Block closedVersionOf(Block open) {
+	public static Block closedVersionOf(Block open) {
 		if (openToClosed == null) {
 			openToClosed = Map.ofEntries(
 					Map.entry(ModBlocks.OPEN_CRATE.get(), ModBlocks.CRATE.get()),

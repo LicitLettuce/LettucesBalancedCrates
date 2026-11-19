@@ -1,4 +1,7 @@
 # Lettuce's Balanced Crates Changelog (NeoForge 1.21.1)
+## Patch 2.0.2
+### Bug Fixes
+- Open crates will now give the correct block when using the Select Block button
 ## Patch 2.0.1
 ### Additions
 - Added the following translations:

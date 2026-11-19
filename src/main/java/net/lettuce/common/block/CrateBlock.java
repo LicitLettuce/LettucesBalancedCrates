@@ -1,6 +1,9 @@
 package net.lettuce.common.block;
 
+import net.lettuce.balancedcrates.client.events.CrateClose;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.CollisionContext;
@@ -128,6 +131,17 @@ public class CrateBlock extends Block implements EntityBlock {
 			return AbstractContainerMenu.getRedstoneSignalFromContainer(be);
 		else
 			return 0;
+
+
+	}
+	@Override
+	public ItemStack getCloneItemStack(LevelReader level, BlockPos pos, BlockState state) {
+		if (open) {
+			Block closed = CrateClose.closedVersionOf(this);
+			if (closed != null)
+				return new ItemStack(closed);
+		}
+		return super.getCloneItemStack(level, pos, state);
 	}
 
 

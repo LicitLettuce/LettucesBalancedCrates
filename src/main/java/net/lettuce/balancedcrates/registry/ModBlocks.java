@@ -16,7 +16,6 @@ import java.util.List;
 public class ModBlocks {
 	public static final DeferredRegister.Blocks REGISTRY = DeferredRegister.createBlocks(BalancedCrates.MOD_ID);
 
-	// Must be declared before the crate constants below, because crate() adds to it
 	private static final List<DeferredHolder<Block, Block>> ALL_CRATES = new ArrayList<>();
 
 	private static BlockBehaviour.Properties crateProperties(MapColor color, SoundType sound) {
@@ -36,7 +35,6 @@ public class ModBlocks {
 		return block;
 	}
 
-	// Default: normal wood sounds
 	private static DeferredHolder<Block, Block> crate(String name, MapColor color, boolean open) {
 		return crate(name, color, SoundType.WOOD, open);
 	}

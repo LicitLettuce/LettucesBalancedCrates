@@ -1,15 +1,8 @@
-# Gradle build system ignores
 .gradle/
 build/
-
-# Other IDE related folders
 .idea/
 .settings/
-
-# Minecraft client/server files
 run/
-
 .DS_STORE
-
 .classpath
 .project
