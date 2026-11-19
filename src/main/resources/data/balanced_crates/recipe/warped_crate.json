@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "balanced_crates",
+  "category": "misc",
+  "pattern": [
+    "aba",
+    "aca",
+    "aba"
+  ],
+  "key": {
+    "a": {
+      "tag": "minecraft:warped_stems"
+    },
+    "b": {
+      "item": "minecraft:warped_slab"
+    },
+    "c": {
+      "item": "minecraft:chest"
+    }
+  },
+  "result": {
+    "id": "balanced_crates:warped_crate",
+    "count": 1
+  }
+}

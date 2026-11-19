@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "balanced_crates",
+  "category": "misc",
+  "pattern": [
+    "aba",
+    "aca",
+    "aba"
+  ],
+  "key": {
+    "a": {
+      "tag": "minecraft:jungle_logs"
+    },
+    "b": {
+      "item": "minecraft:jungle_slab"
+    },
+    "c": {
+      "item": "minecraft:chest"
+    }
+  },
+  "result": {
+    "id": "balanced_crates:jungle_crate",
+    "count": 1
+  }
+}
