@@ -30,10 +30,8 @@ public class ModCreativeTabs {
                         output.accept(ModItems.MANGROVE_CRATE.get());
                         output.accept(ModItems.CHERRY_CRATE.get());
                         output.accept(ModItems.BAMBOO_CRATE.get());
-                        output.accept(ModItems.PALE_OAK_CRATE.get());
                         output.accept(ModItems.CRIMSON_CRATE.get());
                         output.accept(ModItems.WARPED_CRATE.get());
-
                     })
                     .build());
 

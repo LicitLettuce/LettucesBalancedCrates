@@ -1,5 +1,11 @@
 # Lettuce's Balanced Crates Changelog (NeoForge 1.21.1)
-## Update 2.0.1
+## Patch 2.0.1
+### Additions
+- Added the following translations:
+  - Chinese (Traditional)
+  - Chinese (Simplified)
+### Bug Fixes
+- Pale Oak Crate no longer appears in the creative inventory
 
 ## Update 2.0 
 ### Changes
