@@ -1,7 +1,14 @@
 # Lettuce's Balanced Crates Changelog (NeoForge 1.21.1)
+
+## Patch 2.0.3
+### Changes
+- Updated Bamboo Crate texture
+- Updated Bamboo Crate texture
+
 ## Patch 2.0.2
 ### Bug Fixes
 - Open crates will now give the correct block when using the Select Block button
+
 ## Patch 2.0.1
 ### Additions
 - Added the following translations:
@@ -30,5 +37,5 @@
 ### Bug Fixes
 
 - All blocks are now the crate block type, instead of having separate block type
-- Crates will no longer make multiple sounds when opended or closed
+- Crates will no longer make multiple sounds when opened or closed
 - Crate subtitles no longer say barrel open/close
