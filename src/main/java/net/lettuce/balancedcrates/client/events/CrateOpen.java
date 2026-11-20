@@ -34,7 +34,11 @@ public class CrateOpen {
 					Map.entry(ModBlocks.BAMBOO_CRATE.get(), ModBlocks.OPEN_BAMBOO_CRATE.get()),
 					Map.entry(ModBlocks.PALE_OAK_CRATE.get(), ModBlocks.OPEN_PALE_OAK_CRATE.get()),
 					Map.entry(ModBlocks.CRIMSON_CRATE.get(), ModBlocks.OPEN_CRIMSON_CRATE.get()),
-					Map.entry(ModBlocks.WARPED_CRATE.get(), ModBlocks.OPEN_WARPED_CRATE.get())
+					Map.entry(ModBlocks.WARPED_CRATE.get(), ModBlocks.OPEN_WARPED_CRATE.get()),
+					//Quark
+					Map.entry(ModBlocks.AZALEA_CRATE.get(), ModBlocks.OPEN_AZALEA_CRATE.get()),
+					Map.entry(ModBlocks.ASHEN_CRATE.get(), ModBlocks.OPEN_ASHEN_CRATE.get()),
+					Map.entry(ModBlocks.TRUMPET_CRATE.get(), ModBlocks.OPEN_TRUMPET_CRATE.get())
 			);
 		}
 		return closedToOpen.get(closed);

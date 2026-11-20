@@ -65,7 +65,16 @@ public class BalancedCrates {
 				event.insertAfter(ModItems.BAMBOO_CRATE.get().getDefaultInstance(), ModItems.CRIMSON_CRATE.get().getDefaultInstance(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
 				event.insertAfter(ModItems.CRIMSON_CRATE.get().getDefaultInstance(), ModItems.WARPED_CRATE.get().getDefaultInstance(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
 			}
+		if (event.getTabKey() == CreativeModeTabs.FUNCTIONAL_BLOCKS) {
+
+			event.insertAfter(Items.BARREL.getDefaultInstance(), ModItems.AZALEA_CRATE.get().getDefaultInstance(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+			event.insertAfter(ModItems.AZALEA_CRATE.get().getDefaultInstance(), ModItems.ASHEN_CRATE.get().getDefaultInstance(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+			event.insertAfter(ModItems.ASHEN_CRATE.get().getDefaultInstance(), ModItems.TRUMPET_CRATE.get().getDefaultInstance(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+
 		}
+	}
+
+
 
 	public static <T extends CustomPacketPayload> void addNetworkMessage(CustomPacketPayload.Type<T> id, StreamCodec<? extends FriendlyByteBuf, T> reader, IPayloadHandler<T> handler) {
 		if (networkingRegistered)

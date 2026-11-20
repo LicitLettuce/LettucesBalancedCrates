@@ -76,10 +76,10 @@ public class ModBlocks {
 	public static final DeferredHolder<Block, Block> OPEN_WARPED_CRATE    = crate("open_warped_crate", MapColor.WARPED_STEM, SoundType.NETHER_WOOD, true);
 
 	// Quark Crates
-	public static final DeferredHolder<Block, Block> A_CRATE            = crate("oak_crate", MapColor.WOOD, false);
-	public static final DeferredHolder<Block, Block> OPEN_OAK_CRATE       = crate("open_oak_crate", MapColor.WOOD, true);
-	public static final DeferredHolder<Block, Block> SPRUCE_CRATE         = crate("spruce_crate", MapColor.PODZOL, false);
-	public static final DeferredHolder<Block, Block> OPEN_SPRUCE_CRATE    = crate("open_spruce_crate", MapColor.PODZOL, true);
-	public static final DeferredHolder<Block, Block> BIRCH_CRATE          = crate("birch_crate", MapColor.SAND, false);
-	public static final DeferredHolder<Block, Block> OPEN_BIRCH_CRATE     = crate("open_birch_crate", MapColor.SAND, true);
+	public static final DeferredHolder<Block, Block> AZALEA_CRATE         = crate("azalea_crate", MapColor.COLOR_GREEN, false);
+	public static final DeferredHolder<Block, Block> OPEN_AZALEA_CRATE    = crate("open_azalea_crate", MapColor.COLOR_GREEN, true);
+	public static final DeferredHolder<Block, Block> ASHEN_CRATE          = crate("ashen_crate", MapColor.TERRACOTTA_WHITE, false);
+	public static final DeferredHolder<Block, Block> OPEN_ASHEN_CRATE     = crate("open_ashen_crate", MapColor.TERRACOTTA_WHITE, true);
+	public static final DeferredHolder<Block, Block> TRUMPET_CRATE        = crate("trumpet_crate", MapColor.TERRACOTTA_RED, false);
+	public static final DeferredHolder<Block, Block> OPEN_TRUMPET_CRATE   = crate("open_trumpet_crate", MapColor.TERRACOTTA_RED, true);
 }

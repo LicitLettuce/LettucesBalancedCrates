@@ -26,6 +26,10 @@ public class ModItems {
 	public static final DeferredItem<Item> CRIMSON_CRATE = block(ModBlocks.CRIMSON_CRATE);
 	public static final DeferredItem<Item> WARPED_CRATE = block(ModBlocks.WARPED_CRATE);
 
+	public static final DeferredItem<Item> AZALEA_CRATE = block(ModBlocks.AZALEA_CRATE);
+	public static final DeferredItem<Item> ASHEN_CRATE = block(ModBlocks.ASHEN_CRATE);
+	public static final DeferredItem<Item> TRUMPET_CRATE = block(ModBlocks.TRUMPET_CRATE);
+
 	private static DeferredItem<Item> block(DeferredHolder<Block, Block> block) {
 		return REGISTRY.register(block.getId().getPath(), () -> new BlockItem(block.get(), new Item.Properties()));
 	}
