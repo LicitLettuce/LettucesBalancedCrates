@@ -26,8 +26,7 @@ import java.util.stream.IntStream;
 import io.netty.buffer.Unpooled;
 
 public class CrateBlockEntity extends RandomizableContainerBlockEntity implements WorldlyContainer {
-	private NonNullList<ItemStack> stacks = NonNullList.withSize(66, ItemStack.EMPTY);
-
+	private NonNullList<ItemStack> stacks = NonNullList.withSize(78, ItemStack.EMPTY);
 	public CrateBlockEntity(BlockPos position, BlockState state) {
 		super(ModBlockEntities.CRATE.get(), position, state);
 	}

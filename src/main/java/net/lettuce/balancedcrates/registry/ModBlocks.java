@@ -74,4 +74,12 @@ public class ModBlocks {
 	public static final DeferredHolder<Block, Block> OPEN_CRIMSON_CRATE   = crate("open_crimson_crate", MapColor.CRIMSON_STEM, SoundType.NETHER_WOOD, true);
 	public static final DeferredHolder<Block, Block> WARPED_CRATE         = crate("warped_crate", MapColor.WARPED_STEM, SoundType.NETHER_WOOD, false);
 	public static final DeferredHolder<Block, Block> OPEN_WARPED_CRATE    = crate("open_warped_crate", MapColor.WARPED_STEM, SoundType.NETHER_WOOD, true);
+
+	// Quark Crates
+	public static final DeferredHolder<Block, Block> A_CRATE            = crate("oak_crate", MapColor.WOOD, false);
+	public static final DeferredHolder<Block, Block> OPEN_OAK_CRATE       = crate("open_oak_crate", MapColor.WOOD, true);
+	public static final DeferredHolder<Block, Block> SPRUCE_CRATE         = crate("spruce_crate", MapColor.PODZOL, false);
+	public static final DeferredHolder<Block, Block> OPEN_SPRUCE_CRATE    = crate("open_spruce_crate", MapColor.PODZOL, true);
+	public static final DeferredHolder<Block, Block> BIRCH_CRATE          = crate("birch_crate", MapColor.SAND, false);
+	public static final DeferredHolder<Block, Block> OPEN_BIRCH_CRATE     = crate("open_birch_crate", MapColor.SAND, true);
 }

@@ -3,7 +3,6 @@
 ## Patch 2.0.3
 ### Changes
 - Updated Bamboo Crate texture
-- Updated Bamboo Crate texture
 
 ## Patch 2.0.2
 ### Bug Fixes

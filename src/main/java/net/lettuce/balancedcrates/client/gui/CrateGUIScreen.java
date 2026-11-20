@@ -16,12 +16,21 @@ import net.lettuce.balancedcrates.registry.ModScreens;
 import com.mojang.blaze3d.systems.RenderSystem;
 
 public class CrateGUIScreen extends AbstractContainerScreen<CrateGUIMenu> implements ModScreens.ScreenAccessor {
+	private static final ResourceLocation BACKGROUND = ResourceLocation.parse("balanced_crates:textures/screens/crate_gui.png");
+
+	private static final int GUI_WIDTH = 258;
+	private static final int GUI_HEIGHT = 223;
+
+	private static final int BUTTON_X = 162;
+	private static final int BUTTON_Y = -4;
+	private static final int BUTTON_WIDTH = 82;
+	private static final int BUTTON_HEIGHT = 20;
+
 	private final Level world;
 	private final int x, y, z;
 	private final Player entity;
 	private boolean menuStateUpdateActive = false;
 	private Button button_close_crate;
-	private static final ResourceLocation BACKGROUND = ResourceLocation.parse("balanced_crates:textures/screens/crate_gui.png");
 
 	public CrateGUIScreen(CrateGUIMenu container, Inventory inventory, Component text) {
 		super(container, inventory, text);
@@ -30,8 +39,8 @@ public class CrateGUIScreen extends AbstractContainerScreen<CrateGUIMenu> implem
 		this.y = container.y;
 		this.z = container.z;
 		this.entity = container.entity;
-		this.imageWidth = 222;
-		this.imageHeight = 223;
+		this.imageWidth = GUI_WIDTH;
+		this.imageHeight = GUI_HEIGHT;
 	}
 
 	@Override
@@ -40,27 +49,33 @@ public class CrateGUIScreen extends AbstractContainerScreen<CrateGUIMenu> implem
 		menuStateUpdateActive = false;
 	}
 
+	private boolean over(int mouseX, int mouseY, int areaX, int areaY, int width, int height) {
+		return mouseX > leftPos + areaX && mouseX < leftPos + areaX + width
+				&& mouseY > topPos + areaY && mouseY < topPos + areaY + height;
+	}
+
 	@Override
 	public void render(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
 		super.render(guiGraphics, mouseX, mouseY, partialTicks);
 		boolean customTooltipShown = false;
-		if (mouseX > leftPos + 160 && mouseX < leftPos + 184 && mouseY > topPos + -7 && mouseY < topPos + 17) {
+		// These tooltip areas are positioned relative to the close button, so they move with it
+		if (over(mouseX, mouseY, BUTTON_X + 34, -7, 24, 24)) {
 			guiGraphics.renderTooltip(font, Component.translatable("gui.balanced_crates.crate_gui.tooltip_closes_crate_and_inventory_when"), mouseX, mouseY);
 			customTooltipShown = true;
 		}
-		if (mouseX > leftPos + 145 && mouseX < leftPos + 169 && mouseY > topPos + -7 && mouseY < topPos + 17) {
+		if (over(mouseX, mouseY, BUTTON_X + 19, -7, 24, 24)) {
 			guiGraphics.renderTooltip(font, Component.translatable("gui.balanced_crates.crate_gui.tooltip_closed_crate_and_inventory_when"), mouseX, mouseY);
 			customTooltipShown = true;
 		}
-		if (mouseX > leftPos + 180 && mouseX < leftPos + 204 && mouseY > topPos + -8 && mouseY < topPos + 16) {
+		if (over(mouseX, mouseY, BUTTON_X + 54, -8, 24, 24)) {
 			guiGraphics.renderTooltip(font, Component.translatable("gui.balanced_crates.crate_gui.tooltip_closes_crate_and_inventory_when1"), mouseX, mouseY);
 			customTooltipShown = true;
 		}
-		if (mouseX > leftPos + 126 && mouseX < leftPos + 150 && mouseY > topPos + -7 && mouseY < topPos + 17) {
+		if (over(mouseX, mouseY, BUTTON_X, -7, 24, 24)) {
 			guiGraphics.renderTooltip(font, Component.translatable("gui.balanced_crates.crate_gui.tooltip_empty"), mouseX, mouseY);
 			customTooltipShown = true;
 		}
-		if (mouseX > leftPos + 183 && mouseX < leftPos + 207 && mouseY > topPos + -7 && mouseY < topPos + 17) {
+		if (over(mouseX, mouseY, BUTTON_X + 57, -7, 24, 24)) {
 			guiGraphics.renderTooltip(font, Component.translatable("gui.balanced_crates.crate_gui.tooltip_empty1"), mouseX, mouseY);
 			customTooltipShown = true;
 		}
@@ -88,7 +103,8 @@ public class CrateGUIScreen extends AbstractContainerScreen<CrateGUIMenu> implem
 
 	@Override
 	protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
-		guiGraphics.drawString(this.font, Component.translatable("gui.balanced_crates.crate_gui.label_inventory"), 31, 129, -12829636, false);
+		// Inventory label x moved from 31 to 49 to line up with the shifted player inventory
+		guiGraphics.drawString(this.font, Component.translatable("gui.balanced_crates.crate_gui.label_inventory"), 49, 129, -12829636, false);
 		guiGraphics.drawString(this.font, Component.translatable("gui.balanced_crates.crate_gui.label_crate"), 14, 7, -12829636, false);
 	}
 
@@ -102,7 +118,7 @@ public class CrateGUIScreen extends AbstractContainerScreen<CrateGUIMenu> implem
 				PacketDistributor.sendToServer(new CrateGUIButton(0, x, y, z));
 				CrateGUIButton.handleButtonAction(entity, 0, x, y, z);
 			}
-		}).bounds(this.leftPos + 126, this.topPos + -4, 82, 20).build();
+		}).bounds(this.leftPos + BUTTON_X, this.topPos + BUTTON_Y, BUTTON_WIDTH, BUTTON_HEIGHT).build();
 		this.addRenderableWidget(button_close_crate);
 	}
 }
