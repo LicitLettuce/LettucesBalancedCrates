@@ -20,6 +20,7 @@ public class ModCreativeTabs {
                     .icon(() -> new ItemStack(ModItems.OAK_CRATE.get()))
                     .displayItems((parameters, output) -> {
 
+                        // Vanilla
                         output.accept(ModItems.CRATE.get());
                         output.accept(ModItems.OAK_CRATE.get());
                         output.accept(ModItems.SPRUCE_CRATE.get());
@@ -33,6 +34,32 @@ public class ModCreativeTabs {
                         output.accept(ModItems.CRIMSON_CRATE.get());
                         output.accept(ModItems.WARPED_CRATE.get());
 
+                        // Atmospheric
+                        output.accept(ModItems.ROSEWOOD_CRATE.get());
+                        output.accept(ModItems.MORADO_CRATE.get());
+                        output.accept(ModItems.YUCCA_CRATE.get());
+                        output.accept(ModItems.LAUREL_CRATE.get());
+                        output.accept(ModItems.ASPEN_CRATE.get());
+                        output.accept(ModItems.KOUSA_CRATE.get());
+                        output.accept(ModItems.GRIMWOOD_CRATE.get());
+
+                        // Environmental
+                        output.accept(ModItems.WILLOW_CRATE.get());
+                        output.accept(ModItems.PINE_CRATE.get());
+                        output.accept(ModItems.PLUM_CRATE.get());
+                        output.accept(ModItems.WISTERIA_CRATE.get());
+
+                        // Autumnity
+                        output.accept(ModItems.MAPLE_CRATE.get());
+
+                        // Upgrade Aquatic
+                        output.accept(ModItems.DRIFTWOOD_CRATE.get());
+                        output.accept(ModItems.RIVER_CRATE.get());
+
+                        // Caverns & Chasms
+                        output.accept(ModItems.CCAZALEA_CRATE.get());
+
+                        // Your existing entries
                         output.accept(ModItems.AZALEA_CRATE.get());
                         output.accept(ModItems.ASHEN_CRATE.get());
                         output.accept(ModItems.TRUMPET_CRATE.get());

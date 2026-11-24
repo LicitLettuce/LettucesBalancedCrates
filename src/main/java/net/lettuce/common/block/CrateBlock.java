@@ -1,6 +1,6 @@
 package net.lettuce.common.block;
 
-import net.lettuce.balancedcrates.client.events.CrateClose;
+import net.lettuce.balancedcrates.registry.CrateVariants;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.LevelReader;
@@ -132,17 +132,14 @@ public class CrateBlock extends Block implements EntityBlock {
 		else
 			return 0;
 
-
 	}
 	@Override
 	public ItemStack getCloneItemStack(LevelReader level, BlockPos pos, BlockState state) {
 		if (open) {
-			Block closed = CrateClose.closedVersionOf(this);
+			Block closed = CrateVariants.closedVersionOf(this);
 			if (closed != null)
 				return new ItemStack(closed);
 		}
 		return super.getCloneItemStack(level, pos, state);
 	}
-
-
 }

@@ -1,0 +1,8 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "balanced_crates:block/willow_crate",
+    "particle": "balanced_crates:block/willow_crate"
+  },
+  "render_type": "solid"
+}

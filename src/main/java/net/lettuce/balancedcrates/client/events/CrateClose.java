@@ -1,6 +1,6 @@
 package net.lettuce.balancedcrates.client.events;
 
-import net.lettuce.balancedcrates.registry.ModBlocks;
+import net.lettuce.balancedcrates.registry.CrateVariants;
 import net.lettuce.balancedcrates.registry.ModSounds;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
@@ -14,37 +14,7 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.Property;
 
-import java.util.Map;
-
 public class CrateClose {
-
-	private static Map<Block, Block> openToClosed;
-
-	public static Block closedVersionOf(Block open) {
-		if (openToClosed == null) {
-			openToClosed = Map.ofEntries(
-					Map.entry(ModBlocks.OPEN_CRATE.get(), ModBlocks.CRATE.get()),
-					Map.entry(ModBlocks.OPEN_OAK_CRATE.get(), ModBlocks.OAK_CRATE.get()),
-					Map.entry(ModBlocks.OPEN_SPRUCE_CRATE.get(), ModBlocks.SPRUCE_CRATE.get()),
-					Map.entry(ModBlocks.OPEN_BIRCH_CRATE.get(), ModBlocks.BIRCH_CRATE.get()),
-					Map.entry(ModBlocks.OPEN_JUNGLE_CRATE.get(), ModBlocks.JUNGLE_CRATE.get()),
-					Map.entry(ModBlocks.OPEN_ACACIA_CRATE.get(), ModBlocks.ACACIA_CRATE.get()),
-					Map.entry(ModBlocks.OPEN_DARK_OAK_CRATE.get(), ModBlocks.DARK_OAK_CRATE.get()),
-					Map.entry(ModBlocks.OPEN_MANGROVE_CRATE.get(), ModBlocks.MANGROVE_CRATE.get()),
-					Map.entry(ModBlocks.OPEN_CHERRY_CRATE.get(), ModBlocks.CHERRY_CRATE.get()),
-					Map.entry(ModBlocks.OPEN_BAMBOO_CRATE.get(), ModBlocks.BAMBOO_CRATE.get()),
-					Map.entry(ModBlocks.OPEN_PALE_OAK_CRATE.get(), ModBlocks.PALE_OAK_CRATE.get()),
-					Map.entry(ModBlocks.OPEN_CRIMSON_CRATE.get(), ModBlocks.CRIMSON_CRATE.get()),
-					Map.entry(ModBlocks.OPEN_WARPED_CRATE.get(), ModBlocks.WARPED_CRATE.get()),
-
-					// Quark
-					Map.entry(ModBlocks.OPEN_AZALEA_CRATE.get(), ModBlocks.AZALEA_CRATE.get()),
-					Map.entry(ModBlocks.OPEN_ASHEN_CRATE.get(), ModBlocks.ASHEN_CRATE.get()),
-					Map.entry(ModBlocks.OPEN_TRUMPET_CRATE.get(), ModBlocks.TRUMPET_CRATE.get())
-			);
-		}
-		return openToClosed.get(open);
-	}
 
 	public static void execute(LevelAccessor world, double x, double y, double z, Entity entity) {
 		if (entity == null || world.isClientSide())
@@ -52,7 +22,7 @@ public class CrateClose {
 
 		BlockPos pos = BlockPos.containing(x, y, z);
 		BlockState oldState = world.getBlockState(pos);
-		Block closed = closedVersionOf(oldState.getBlock());
+		Block closed = CrateVariants.closedVersionOf(oldState.getBlock());
 		if (closed == null)
 			return;
 
@@ -88,7 +58,7 @@ public class CrateClose {
 		}
 
 		if (world instanceof Level level) {
-			level.playSound(null, pos, ModSounds.CRATE_CLOSE.get(), SoundSource.BLOCKS, 0.5f, 0.75f);
+			level.playSound(null, pos, ModSounds.CRATE_CLOSE.get(), SoundSource.BLOCKS, 0.5f, 0.8f);
 		}
 	}
 }

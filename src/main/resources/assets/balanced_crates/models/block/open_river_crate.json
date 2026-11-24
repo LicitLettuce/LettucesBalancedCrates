@@ -1,0 +1,10 @@
+{
+  "parent": "balanced_crates:custom/open_crate",
+  "textures": {
+    "all": "balanced_crates:block/river_crate",
+    "particle": "balanced_crates:block/river_crate",
+    "crate": "balanced_crates:block/river_crate",
+    "open": "balanced_crates:block/river_crate_open"
+  },
+  "render_type": "cutout_mipped"
+}
