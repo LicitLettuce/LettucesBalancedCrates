@@ -1,4 +1,28 @@
 # Lettuce's Balanced Crates Changelog (NeoForge 1.21.1)
+## Update 2.1
+### Additions
+- Added Built-in compatibility for the following mods:
+  - Quark
+    - Azalea Crate
+    - Trumpet Crate
+    - Ashen Crate
+  - Environmental
+    - Willow Crate
+    - Plum Crate
+    - Pine Crate
+    - Wisteria Crate
+  - Atmospheric
+    - Aspen Crate
+    - Laurel Crate
+    - Morado Crate
+    - Yucca Crate
+    - Rosewood Crate
+    - Grimwood Crate
+    - Kousa Crate
+- These crates will only be available in-game if their respective mod is installed
+- ### Changes
+  - Crates now have 78 slots of storage, adding 12 additional from the previous version.
+  - Crate GUI has been update to be more unique
 
 ## Patch 2.0.3
 ### Changes

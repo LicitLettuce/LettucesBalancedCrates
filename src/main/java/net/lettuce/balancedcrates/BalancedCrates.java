@@ -3,7 +3,10 @@ package net.lettuce.balancedcrates;
 import net.lettuce.balancedcrates.registry.*;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.CreativeModeTabs;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.level.ItemLike;
+import net.neoforged.fml.ModList;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.network.registration.PayloadRegistrar;
 import net.neoforged.neoforge.network.handling.IPayloadHandler;
@@ -50,30 +53,68 @@ public class BalancedCrates {
 	}
 
 	private void addCreative(BuildCreativeModeTabContentsEvent event) {
-			if (event.getTabKey() == CreativeModeTabs.FUNCTIONAL_BLOCKS) {
+		if (event.getTabKey() != CreativeModeTabs.FUNCTIONAL_BLOCKS)
+			return;
 
-				event.insertAfter(Items.BARREL.getDefaultInstance(), ModItems.CRATE.get().getDefaultInstance(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-				event.insertAfter(ModItems.CRATE.get().getDefaultInstance(), ModItems.OAK_CRATE.get().getDefaultInstance(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-				event.insertAfter(ModItems.OAK_CRATE.get().getDefaultInstance(), ModItems.SPRUCE_CRATE.get().getDefaultInstance(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-				event.insertAfter(ModItems.SPRUCE_CRATE.get().getDefaultInstance(), ModItems.BIRCH_CRATE.get().getDefaultInstance(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-				event.insertAfter(ModItems.BIRCH_CRATE.get().getDefaultInstance(), ModItems.JUNGLE_CRATE.get().getDefaultInstance(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-				event.insertAfter(ModItems.JUNGLE_CRATE.get().getDefaultInstance(), ModItems.ACACIA_CRATE.get().getDefaultInstance(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-				event.insertAfter(ModItems.ACACIA_CRATE.get().getDefaultInstance(), ModItems.DARK_OAK_CRATE.get().getDefaultInstance(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-				event.insertAfter(ModItems.DARK_OAK_CRATE.get().getDefaultInstance(), ModItems.MANGROVE_CRATE.get().getDefaultInstance(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-				event.insertAfter(ModItems.MANGROVE_CRATE.get().getDefaultInstance(), ModItems.CHERRY_CRATE.get().getDefaultInstance(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-				event.insertAfter(ModItems.CHERRY_CRATE.get().getDefaultInstance(), ModItems.BAMBOO_CRATE.get().getDefaultInstance(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-				event.insertAfter(ModItems.BAMBOO_CRATE.get().getDefaultInstance(), ModItems.CRIMSON_CRATE.get().getDefaultInstance(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-				event.insertAfter(ModItems.CRIMSON_CRATE.get().getDefaultInstance(), ModItems.WARPED_CRATE.get().getDefaultInstance(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-			}
-		if (event.getTabKey() == CreativeModeTabs.FUNCTIONAL_BLOCKS) {
+		ItemStack last = Items.BARREL.getDefaultInstance();
 
-			event.insertAfter(Items.BARREL.getDefaultInstance(), ModItems.AZALEA_CRATE.get().getDefaultInstance(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-			event.insertAfter(ModItems.AZALEA_CRATE.get().getDefaultInstance(), ModItems.ASHEN_CRATE.get().getDefaultInstance(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-			event.insertAfter(ModItems.ASHEN_CRATE.get().getDefaultInstance(), ModItems.TRUMPET_CRATE.get().getDefaultInstance(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+		last = insertAll(event, last,
+				ModItems.CRATE.get(),
+				ModItems.OAK_CRATE.get(),
+				ModItems.SPRUCE_CRATE.get(),
+				ModItems.BIRCH_CRATE.get(),
+				ModItems.JUNGLE_CRATE.get(),
+				ModItems.ACACIA_CRATE.get(),
+				ModItems.DARK_OAK_CRATE.get(),
+				ModItems.MANGROVE_CRATE.get(),
+				ModItems.CHERRY_CRATE.get(),
+				ModItems.BAMBOO_CRATE.get(),
+				ModItems.CRIMSON_CRATE.get(),
+				ModItems.WARPED_CRATE.get());
 
-		}
+		last = insertIfLoaded(event, last, "quark",
+				ModItems.AZALEA_CRATE.get(),
+				ModItems.ASHEN_CRATE.get(),
+				ModItems.TRUMPET_CRATE.get());
+
+		last = insertIfLoaded(event, last, "atmospheric",
+				ModItems.ROSEWOOD_CRATE.get(),
+				ModItems.MORADO_CRATE.get(),
+				ModItems.YUCCA_CRATE.get(),
+				ModItems.LAUREL_CRATE.get(),
+				ModItems.ASPEN_CRATE.get(),
+				ModItems.KOUSA_CRATE.get(),
+				ModItems.GRIMWOOD_CRATE.get());
+
+		last = insertIfLoaded(event, last, "environmental",
+				ModItems.WILLOW_CRATE.get(),
+				ModItems.PINE_CRATE.get(),
+				ModItems.PLUM_CRATE.get(),
+				ModItems.WISTERIA_CRATE.get());
+
+		last = insertIfLoaded(event, last, "autumnity",
+				ModItems.MAPLE_CRATE.get());
+
+		last = insertIfLoaded(event, last, "upgrade_aquatic",
+				ModItems.DRIFTWOOD_CRATE.get(),
+				ModItems.RIVER_CRATE.get());
+
+		insertIfLoaded(event, last, "caverns_and_chasms",
+				ModItems.CCAZALEA_CRATE.get());
 	}
 
+	private static ItemStack insertAll(BuildCreativeModeTabContentsEvent event, ItemStack after, ItemLike... items) {
+		for (ItemLike item : items) {
+			ItemStack stack = item.asItem().getDefaultInstance();
+			event.insertAfter(after, stack, CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+			after = stack;
+		}
+		return after;
+	}
+
+	private static ItemStack insertIfLoaded(BuildCreativeModeTabContentsEvent event, ItemStack after, String modId, ItemLike... items) {
+		return ModList.get().isLoaded(modId) ? insertAll(event, after, items) : after;
+	}
 
 
 	public static <T extends CustomPacketPayload> void addNetworkMessage(CustomPacketPayload.Type<T> id, StreamCodec<? extends FriendlyByteBuf, T> reader, IPayloadHandler<T> handler) {

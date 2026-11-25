@@ -4,13 +4,13 @@ license="Creative Commons Attribution-NonCommercial 3.0"
 
 [[mods]]
 modId="balanced_crates"
-version="2.0.3"
+version="2.1"
 displayName="Lettuce's Balanced Crates"
 displayURL="https://curseforge.com/minecraft/mc-mods/balanced-crates"
 logoFile="logo.png"
 credits=""
 authors="LicitLettuce"
-description="Nifty storage blocks that also make great decorations"
+description="Cozy upgraded storage blocks that don't break the game"
 
 [[dependencies.balanced_crates]]
     modId="neoforge"

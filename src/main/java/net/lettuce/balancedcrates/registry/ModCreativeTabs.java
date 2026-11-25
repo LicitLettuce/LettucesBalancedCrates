@@ -5,7 +5,9 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.ItemLike;
 import net.neoforged.bus.api.IEventBus;
+import net.neoforged.fml.ModList;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
@@ -14,13 +16,19 @@ public class ModCreativeTabs {
     public static final DeferredRegister<CreativeModeTab> REGISTRY =
             DeferredRegister.create(Registries.CREATIVE_MODE_TAB, BalancedCrates.MOD_ID);
 
+    private static void addIfLoaded(CreativeModeTab.Output output, String modId, ItemLike... items) {
+        if (!ModList.get().isLoaded(modId))
+            return;
+        for (ItemLike item : items)
+            output.accept(item);
+    }
+
     public static final DeferredHolder<CreativeModeTab, CreativeModeTab> BALANCED_CRATES =
             REGISTRY.register("balanced_crates", () -> CreativeModeTab.builder()
                     .title(Component.translatable("itemGroup.balanced_crates.balanced_crates"))
                     .icon(() -> new ItemStack(ModItems.OAK_CRATE.get()))
                     .displayItems((parameters, output) -> {
 
-                        // Vanilla
                         output.accept(ModItems.CRATE.get());
                         output.accept(ModItems.OAK_CRATE.get());
                         output.accept(ModItems.SPRUCE_CRATE.get());
@@ -34,35 +42,35 @@ public class ModCreativeTabs {
                         output.accept(ModItems.CRIMSON_CRATE.get());
                         output.accept(ModItems.WARPED_CRATE.get());
 
-                        // Atmospheric
-                        output.accept(ModItems.ROSEWOOD_CRATE.get());
-                        output.accept(ModItems.MORADO_CRATE.get());
-                        output.accept(ModItems.YUCCA_CRATE.get());
-                        output.accept(ModItems.LAUREL_CRATE.get());
-                        output.accept(ModItems.ASPEN_CRATE.get());
-                        output.accept(ModItems.KOUSA_CRATE.get());
-                        output.accept(ModItems.GRIMWOOD_CRATE.get());
+                        addIfLoaded(output, "quark",
+                                ModItems.AZALEA_CRATE.get(),
+                                ModItems.ASHEN_CRATE.get(),
+                                ModItems.TRUMPET_CRATE.get());
 
-                        // Environmental
-                        output.accept(ModItems.WILLOW_CRATE.get());
-                        output.accept(ModItems.PINE_CRATE.get());
-                        output.accept(ModItems.PLUM_CRATE.get());
-                        output.accept(ModItems.WISTERIA_CRATE.get());
+                        addIfLoaded(output, "atmospheric",
+                                ModItems.ROSEWOOD_CRATE.get(),
+                                ModItems.MORADO_CRATE.get(),
+                                ModItems.YUCCA_CRATE.get(),
+                                ModItems.LAUREL_CRATE.get(),
+                                ModItems.ASPEN_CRATE.get(),
+                                ModItems.KOUSA_CRATE.get(),
+                                ModItems.GRIMWOOD_CRATE.get());
 
-                        // Autumnity
-                        output.accept(ModItems.MAPLE_CRATE.get());
+                        addIfLoaded(output, "environmental",
+                                ModItems.WILLOW_CRATE.get(),
+                                ModItems.PINE_CRATE.get(),
+                                ModItems.PLUM_CRATE.get(),
+                                ModItems.WISTERIA_CRATE.get());
 
-                        // Upgrade Aquatic
-                        output.accept(ModItems.DRIFTWOOD_CRATE.get());
-                        output.accept(ModItems.RIVER_CRATE.get());
+                        addIfLoaded(output, "autumnity",
+                                ModItems.MAPLE_CRATE.get());
 
-                        // Caverns & Chasms
-                        output.accept(ModItems.CCAZALEA_CRATE.get());
+                        addIfLoaded(output, "upgrade_aquatic",
+                                ModItems.DRIFTWOOD_CRATE.get(),
+                                ModItems.RIVER_CRATE.get());
 
-                        // Your existing entries
-                        output.accept(ModItems.AZALEA_CRATE.get());
-                        output.accept(ModItems.ASHEN_CRATE.get());
-                        output.accept(ModItems.TRUMPET_CRATE.get());
+                        addIfLoaded(output, "caverns_and_chasms",
+                                ModItems.CCAZALEA_CRATE.get());
                     })
                     .build());
 

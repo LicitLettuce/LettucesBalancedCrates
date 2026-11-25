@@ -15,10 +15,10 @@
   ],
   "key": {
     "a": {
-      "tag": "quark:ancient_logs"
+      "tag": "balanced_crates:quark_ancient_logs"
     },
     "b": {
-      "item": "quark:ancient_slab"
+      "item": "quark:ancient_planks_slab"
     },
     "c": {
       "item": "minecraft:chest"

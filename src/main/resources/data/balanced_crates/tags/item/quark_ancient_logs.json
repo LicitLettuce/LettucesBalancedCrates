@@ -1,0 +1,20 @@
+{
+  "values": [
+    {
+      "id": "quark:ancient_log",
+      "required": false
+    },
+    {
+      "id": "quark:ancient_wood",
+      "required": false
+    },
+    {
+      "id": "quark:stripped_ancient_log",
+      "required": false
+    },
+    {
+      "id": "quark:stripped_ancient_wood",
+      "required": false
+    }
+  ]
+}
