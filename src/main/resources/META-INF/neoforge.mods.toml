@@ -4,7 +4,7 @@ license="Creative Commons Attribution-NonCommercial 3.0"
 
 [[mods]]
 modId="balanced_crates"
-version="2.1"
+version="2.1.1"
 displayName="Lettuce's Balanced Crates"
 displayURL="https://curseforge.com/minecraft/mc-mods/balanced-crates"
 logoFile="logo.png"
